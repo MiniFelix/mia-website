@@ -15,4 +15,41 @@
     #faeaec,
     #faccd2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .reorder-btn {
+    position: absolute;
+    border: none;
+    width: 150px;
+    padding: 16px;
+    background-color: darkgray;
+
+    z-index: 999;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  .container {
+    position: absolute;
+    top: 25vh;
+    left: 25vw;
+    width: 50vw;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    border: 3px solid white;
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      color: black;
+    }
+  }
 }

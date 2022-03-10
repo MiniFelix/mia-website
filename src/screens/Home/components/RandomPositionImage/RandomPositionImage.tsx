@@ -40,19 +40,16 @@ const translateRandom = (
   leftPercentage: number
 ) => keyframes`
   0% {
-
-    left: 120%;
-    visibility: hidden;
+    transform: translateX(100vw) translateY(50vh);
     opacity: 0;
   }
   50% {
       opacity: 0.3;
   }
   100% {
-    /* transform: translateX(0%); */
-    top: ${topPercentage / 100}%;
-    left: ${leftPercentage / 100}%;
-    visibility: visible;
+    transform: translateX(${leftPercentage / 100}vw) translateY(${
+  topPercentage / 100
+}vh);
     opacity: 1;
   }
   `;
@@ -64,26 +61,24 @@ const moveToPositionAnim = (
   leftPercentage: number
 ) => keyframes`
   0% { 
-    top: ${previousTopPercentage / 100}%;
-    left: ${previousLeftPercentage / 100}%;
-    visibility: visible;
+    transform: translateX(${previousLeftPercentage / 100}vw) translateY(${
+  previousTopPercentage / 100
+}vh);
     opacity: 1;
   }
   100% { 
-    top: ${topPercentage / 100}%;
-    left: ${leftPercentage / 100}%;
+    transform: translateX(${leftPercentage / 100}vw) translateY(${
+  topPercentage / 100
+}vh);
+    
     opacity: 1;
-    visibility: visible;
+    
   }
 `;
 
 const StyledDiv = styled.div<StyledDivProps>`
   position: absolute;
-  visibility: hidden;
-  /* opacity: 0; */
-
-  left: ${(props) => props.currentX / 100}%;
-  top: ${(props) => props.currentY / 100}%;
+  opacity: 0;
 
   animation: ${(props) =>
       props.animationType === "initial"
@@ -103,6 +98,8 @@ const StyledDiv = styled.div<StyledDivProps>`
         ? `cubic-bezier(0.1, 1.11, 1, 0.99)`
         : `ease`}
     forwards;
+
+  will-change: transform, box-shadow, z-index;
 
   animation-delay: ${(props) =>
     props.animationType === "initial" ? randomBetweenNumber(0, 800) : 0}ms;

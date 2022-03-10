@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
-// import TestImage from "../../assets/images/test.jpg";
-import TestImage from "../../logo.svg";
+import TestImage from "../../assets/images/test.jpg";
+// import TestImage from "../../logo.svg";
 import RandomPositionImage, {
   RandomPositionImageProps,
 } from "./components/RandomPositionImage/RandomPositionImage";
@@ -62,22 +62,26 @@ const HomeScreen: React.FC = () => {
 
   return (
     <div className="Home">
-      Home width: {dimention.width} - height: {dimention.height}
-      <button style={{ zIndex: 999 }} onClick={handleReorderImages}>
-        {" "}
+      {/* Home width: {dimention.width} - height: {dimention.height} */}
+      <button className="reorder-btn" onClick={handleReorderImages}>
         Test
       </button>
-      {data.map((p, i) => (
-        <RandomPositionImage
-          animationType={p.animationType}
-          previousX={p.previousX}
-          previousY={p.previousY}
-          currentX={p.currentX}
-          currentY={p.currentY}
-          key={i.toString()}
-          imageUrl={p.imageUrl}
-        />
-      ))}
+      <div>
+        {data.map((p, i) => (
+          <RandomPositionImage
+            animationType={p.animationType}
+            previousX={p.previousX}
+            previousY={p.previousY}
+            currentX={p.currentX}
+            currentY={p.currentY}
+            key={i.toString()}
+            imageUrl={p.imageUrl}
+          />
+        ))}
+      </div>
+      <div className="container">
+        <h1>Welcome to Mia's home</h1>
+      </div>
     </div>
   );
 };
