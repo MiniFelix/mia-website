@@ -1,0 +1,21 @@
+.image-item-container {
+  .image {
+    // max-width: 250px;
+    object-fit: contain;
+    min-width: 250px;
+    min-height: 250px;
+
+    background-color: lightblue;
+    border: 3px solid white;
+  }
+
+  &:hover {
+    .image {
+      transform: scale(1.3);
+      transition: all 200ms ease;
+    }
+
+    z-index: 999;
+    // transition: all 250ms ease-in;
+  }
+}
