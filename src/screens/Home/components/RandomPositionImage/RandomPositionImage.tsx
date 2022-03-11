@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import useWindowDimensions from "../../../../services/useWindowDimensions";
 
 import "./RandomPositionImage.scss";
 
@@ -108,7 +109,6 @@ const StyledDiv = styled.div<StyledDivProps>`
 const RandomPositionImage: React.FC<RandomPositionImageProps> = (
   props: RandomPositionImageProps
 ) => {
-  console.log("Props: ", props);
   // const [animationType, setAnimationType] = useState({
   //   type: "initial",
   //   valueX: 0,
@@ -116,6 +116,7 @@ const RandomPositionImage: React.FC<RandomPositionImageProps> = (
   //   previousX: 0,
   //   previousY: 0,
   // });
+
   const [imageWidth, setImageWidth] = useState(randomBetweenNumber(250, 350));
 
   // useEffect(() => {

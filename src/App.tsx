@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 import HomeScreen from "./screens/Home/Home";
