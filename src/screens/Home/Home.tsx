@@ -91,6 +91,10 @@ const HomeScreen: React.FC = () => {
 
       setMessage(parsedMessages[0]);
 
+      if (parsedMessages.length === 1) {
+        return;
+      }
+
       while (true) {
         await timeout(timer + 2500);
 
