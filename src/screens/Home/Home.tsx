@@ -72,6 +72,10 @@ const HomeScreen: React.FC = () => {
 
   useEffect(() => {
     (async () => {
+      let currentIndex = 0;
+      const timer = 1500;
+      await timeout(timer + 1000);
+
       const MessageHandler = new FirestoreMessage();
       const messages = await MessageHandler.getAllMessages();
       const parsedMessages = messages.map((m) => {
@@ -86,10 +90,6 @@ const HomeScreen: React.FC = () => {
       }
 
       setMessage(parsedMessages[0]);
-
-      let currentIndex = 0;
-      const timer = 1500;
-      // await timeout(timer + 2500);
 
       while (true) {
         await timeout(timer + 2500);
